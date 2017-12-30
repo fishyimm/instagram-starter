@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.application.demoinstagram.MainActivity" >
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings" />
+    <item android:id="@+id/share" android:title="@string/share"/>
+
+    <item android:id="@+id/camera" android:title="@string/camera"/>
+    <item android:id="@+id/logout" android:title="@string/logout"/>
+</menu>

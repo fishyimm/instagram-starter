@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.application.demoinstagram.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="351dp"
+        android:layout_height="107dp"
+        app:srcCompat="@drawable/instragramlogo"
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="3dp"/>
+
+    <EditText
+        android:id="@+id/usernameEditText"
+        android:layout_width="353dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Enter your username"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView"
+        tools:layout_editor_absoluteX="16dp"
+        />
+
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="353dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="Enter your password"
+        android:inputType="textPassword"
+        app:layout_constraintTop_toBottomOf="@+id/usernameEditText"
+        tools:layout_editor_absoluteX="16dp"
+        />
+
+    <Button
+        android:id="@+id/loginButton"
+        android:layout_width="86dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="20dp"
+        android:onClick="Login"
+        android:text="@string/login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordEditText"/>
+
+    <TextView
+        android:id="@+id/changeSignUpModeTextView"
+        android:layout_width="88dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="11dp"
+        android:text="@string/signupMode"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginButton"/>
+</android.support.constraint.ConstraintLayout>
