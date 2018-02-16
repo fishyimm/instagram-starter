@@ -131,33 +131,38 @@ public class UserListActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         } else if(requestCode == 2){
-            Log.i("requestCode", "" + data.getData());
-            Bundle extras = data.getExtras();
-            Bitmap bitmap = (Bitmap) extras.get("data");
+            if(data != null) {
+                Log.i("requestCode", "" + data.getData());
+                Bundle extras = data.getExtras();
+                Bitmap bitmap = (Bitmap) extras.get("data");
 
-            ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
 
-            byte[] bytes = stream.toByteArray();
+                byte[] bytes = stream.toByteArray();
 
-            ParseFile file = new ParseFile("image.png", bytes);
+                ParseFile file = new ParseFile("image.png", bytes);
 
-            ParseObject object = new ParseObject("Image");
-            object.put("image", file);
-            object.put("username", ParseUser.getCurrentUser().getUsername());
+                ParseObject object = new ParseObject("Image");
+                object.put("image", file);
+                object.put("username", ParseUser.getCurrentUser().getUsername());
 
-            object.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-                    if(e == null) {
-                        Toast.makeText(UserListActivity.this, "Image Shared from camera ", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(UserListActivity.this, "Please try again later with camera ", Toast.LENGTH_SHORT).show();
+                object.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if(e == null) {
+                            Toast.makeText(UserListActivity.this, "Image Shared from camera ", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(UserListActivity.this, "Please try again later with camera ", Toast.LENGTH_SHORT).show();
+                        }
                     }
-                }
-            });
+                });
 
-            Log.i("resultCode - 2 ", "" + extras.get("data"));
+                Log.i("resultCode - 2 ", "" + extras.get("data"));
+            } else {
+                Log.i("resultCode  ", "data is null" );
+            }
+
 
         }
     }
